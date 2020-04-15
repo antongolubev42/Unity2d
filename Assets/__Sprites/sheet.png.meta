@@ -29,6 +29,15 @@ TextureImporter:
   - first:
       213: -3811366959001244164
     second: powerUp
+  - first:
+      213: 8333748715604646369
+    second: ExtraLife
+  - first:
+      213: 6530179738444782934
+    second: sheet_0
+  - first:
+      213: -2525113037978954678
+    second: Enemy2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -325,7 +334,7 @@ TextureImporter:
         width: 33
         height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -333,6 +342,69 @@ TextureImporter:
       bones: []
       spriteID: 5df1a0a8d0591fd4497a0eeb38a3a078
       internalID: -3811366959001244164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExtraLife
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 557
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1e48def00d89845a48d808b06e50df
+      internalID: 8333748715604646369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_0
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 842
+        width: 92
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b013d52bec1664ca8d074e3ca49eca
+      internalID: 6530179738444782934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 933
+        width: 91
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f612a0b35af26f248b64329d37f4aa7b
+      internalID: -2525113037978954678
       vertices: []
       indices: 
       edges: []

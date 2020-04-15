@@ -5,14 +5,18 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float fireDelay =0.25f;
+    [SerializeField] private GameObject puBulletPrefab;
+    [SerializeField] public float fireDelay =0.25f;
     
-    int bulletLayer;
+    private int bulletLayer;
     private float cooldownTimer=0f;
+
+    private PowerUp pu;
     // Start is called before the first frame update
     void Start()
     {
         bulletLayer=gameObject.layer;
+        PowerUp pu=GetComponent<PowerUp>();
     }
 
     // Update is called once per frame
@@ -26,9 +30,18 @@ public class PlayerShooting : MonoBehaviour
             cooldownTimer=fireDelay;
             
             Vector3 offset=transform.rotation* new Vector3(0,0.8f,0); //used to spawn the bullet at the top of the ship
-            GameObject bulletGO=(GameObject)Instantiate(bulletPrefab,transform.position+offset,transform.rotation);
-            //sets the bullet layer to the same layer as the thing that fired it
-            bulletGO.layer=bulletLayer;
+           
+                GameObject bulletGO=(GameObject)Instantiate(bulletPrefab,transform.position+offset,transform.rotation);
+                //sets the bullet layer to the same layer as the thing that fired it
+                
+                bulletGO.layer=bulletLayer;
+            
+
+            
+
+            
+            
+            
         }
     }
 }

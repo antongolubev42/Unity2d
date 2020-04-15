@@ -13,8 +13,11 @@ public class PlayerMovement : MonoBehaviour
     private bool canDash=true;
     [SerializeField] private float dashingTime;
     [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashRot=360f;
     [SerializeField] private float timeBtwDashes;
     private float preDashSpeed;
+    private float preDashRot;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -91,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
     private void DashMove()
     {   
         preDashSpeed=maxSpeed;
+        preDashRot=rotSpeed;
+
         if(canDash)
         {
             StartCoroutine(Dash());
@@ -101,8 +106,10 @@ public class PlayerMovement : MonoBehaviour
     {
         canDash=false;
         maxSpeed=dashSpeed;
+        rotSpeed=dashRot;
         yield return new WaitForSeconds(dashingTime);
         maxSpeed=preDashSpeed;
+        rotSpeed=preDashRot;
         yield return new WaitForSeconds(timeBtwDashes);
         canDash=true;
     }

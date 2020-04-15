@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float spawnRate;
 
-    private float spawnDistance=20f;
+    [SerializeField] private float spawnDistance=20f;
     private float nextEnemy=1f;
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
         if(nextEnemy<=0f)
         {
             nextEnemy= spawnRate;
-            spawnRate*=0.97f;     
+            spawnRate*=0.95f;     
 
             if(spawnRate<2)
             {

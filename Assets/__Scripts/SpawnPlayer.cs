@@ -8,12 +8,14 @@ public class SpawnPlayer : MonoBehaviour
     
     [SerializeField] int numLives=4;
     private GameObject playerInstance;
+    private PauseMenu pause;
 
     private float respawnTimer=1.5f;
     // Start is called before the first frame update
     void Start()
     {
         Spawn();
+        PauseMenu pause=GetComponent<PauseMenu>();
     }
 
     void Spawn()
@@ -43,6 +45,8 @@ public class SpawnPlayer : MonoBehaviour
         if(numLives>0 | playerInstance!=null)
         {
             GUI.Label(new Rect(0,0,100,50),"Lives: "+numLives);
+            //pause.Pause();
+            
         }
 
         else 

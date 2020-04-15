@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageHandler : MonoBehaviour
 {   
-    [SerializeField] private int health =1;
+    [SerializeField] public int health =1;
     [SerializeField] private float invulTime=0f;
     private float invulPeriod=0f;
     private int correctLayer;
@@ -25,6 +25,7 @@ public class DamageHandler : MonoBehaviour
 
             if(spriteRenderer==null)
             {
+                Destroy(gameObject);
                 Debug.LogError("Object '"+gameObject.name+"' has no sprite renderer");
             }
         }
@@ -69,10 +70,12 @@ public class DamageHandler : MonoBehaviour
         {
             Die();
         }
+
+        CheckIfInvisible();
     }
     private void Die()
     {
-        if(gameObject.layer==9)
+        if(gameObject.layer==9 && gameObject.tag=="Enemy")
         {
             Debug.Log("Killed enemy");
             Scoreboard.scoreValue+=10;
@@ -80,11 +83,17 @@ public class DamageHandler : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnBecameInvisible()
+    private void CheckIfInvisible()
     {
-        if(health<=0)
+        if(spriteRenderer==null)
         {
-            Destroy(gameObject);
+            spriteRenderer= transform.GetComponentInChildren<SpriteRenderer>();
+
+            if(spriteRenderer==null)
+            {
+                Destroy(gameObject);
+                Debug.LogError("Object '"+gameObject.name+"' has no sprite renderer");
+            }
         }
     }
 

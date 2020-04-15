@@ -10,11 +10,13 @@ public class EnemyShooting : MonoBehaviour
     private float cooldownTimer=0f;
 
     private Transform player;
+    private SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
         bulletLayer=gameObject.layer;
+        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>(); 
     }
 
     // Update is called once per frame
@@ -37,7 +39,6 @@ public class EnemyShooting : MonoBehaviour
         // and if the distance is less than 5
         if(cooldownTimer<=0 && player !=null && Vector3.Distance(transform.position,player.position)<5) 
         {
-            Debug.Log("bad pew");
             cooldownTimer=fireDelay;
 
             //used to spawn the bullet at the top of the ship
@@ -47,5 +48,10 @@ public class EnemyShooting : MonoBehaviour
             //sets the bullet layer to the same layer as the thing that fired it
             bulletGO.layer=bulletLayer;
         }
+
+        
     }
+
+    
+   
 }
