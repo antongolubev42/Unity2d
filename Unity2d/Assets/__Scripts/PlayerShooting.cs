@@ -11,12 +11,14 @@ public class PlayerShooting : MonoBehaviour
     private int bulletLayer;
     private float cooldownTimer=0f;
 
-    private PowerUp pu;
+    private AudioManager audioManager;
+    
     // Start is called before the first frame update
     void Start()
     {
         bulletLayer=gameObject.layer;
-        PowerUp pu=GetComponent<PowerUp>();
+
+        AudioManager audioManager=GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -32,16 +34,11 @@ public class PlayerShooting : MonoBehaviour
             Vector3 offset=transform.rotation* new Vector3(0,0.8f,0); //used to spawn the bullet at the top of the ship
            
                 GameObject bulletGO=(GameObject)Instantiate(bulletPrefab,transform.position+offset,transform.rotation);
+                audioManager.Play("PlayerShoot");
                 //sets the bullet layer to the same layer as the thing that fired it
-                
                 bulletGO.layer=bulletLayer;
-            
-
-            
-
-            
-            
-            
         }
     }
+
+    
 }

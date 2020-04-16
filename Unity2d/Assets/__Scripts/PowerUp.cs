@@ -7,7 +7,9 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private float duration=4f;
     [SerializeField] private float shootDelay=0f;
     [SerializeField] private float rotate=360f;
-    [SerializeField] private int puHEalth; 
+    [SerializeField] private int puHealth; 
+
+    [SerializeField] private float speed;
 
     //public bool powerUp=false;
 
@@ -29,7 +31,8 @@ public class PowerUp : MonoBehaviour
 
         //increase fire rate and health
         shooting.fireDelay=shootDelay;
-        damage.health+=puHEalth;
+        damage.health+=puHealth;
+        movement.maxSpeed+=speed;
         //powerUp=true;
 
         GetComponent<SpriteRenderer>().enabled=false;

@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 4
-  fireRate: 0
+  shootDelay: 0
   rotate: 360
-  powerUp: 0
+  puHealth: 0
 --- !u!50 &2265451872169141847
 Rigidbody2D:
   serializedVersion: 4
@@ -161,6 +161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 4
-  fireRate: 0
+  shootDelay: 0
   rotate: 360
-  powerUp: 0
+  puHealth: 1

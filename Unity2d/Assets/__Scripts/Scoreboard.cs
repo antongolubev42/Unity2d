@@ -23,5 +23,10 @@ public class Scoreboard : MonoBehaviour
         {
             SceneManager.LoadScene("levelTwo");
         }
+
+        if(scene.name=="levelTwo" && scoreValue==350)
+        {
+            SceneManager.LoadScene("levelThree");
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float maxSpeed=5.0f;
+    [SerializeField] public float maxSpeed=5.0f;
 
     [SerializeField] private float rotSpeed=180f;
 
@@ -17,16 +17,27 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float timeBtwDashes;
     private float preDashSpeed;
     private float preDashRot;
+    private AudioManager audioManager;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioManager=GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
     void Update()
     {   
+        Move();
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            DashMove();
+        }   
+    }
+    
+    private void Move()
+    {
         //rotate ship
 
         //get rotation quaternion
@@ -83,12 +94,9 @@ public class PlayerMovement : MonoBehaviour
             pos.x= -widthOrtho+shipBoundaryRadius;
         }*/
 
+
         //update position
         transform.position=pos;
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            DashMove();
-        }   
     }
     
     private void DashMove()
