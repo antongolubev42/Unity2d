@@ -41,6 +41,12 @@ TextureImporter:
   - first:
       213: 6872265669878609110
     second: enemyLazer
+  - first:
+      213: 613435604629981061
+    second: sheet_1
+  - first:
+      213: -3656531271222932061
+    second: sheet_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -421,7 +427,7 @@ TextureImporter:
         width: 13
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -429,6 +435,48 @@ TextureImporter:
       bones: []
       spriteID: 6e049a86aa2fdde41bcb326bf0b22131
       internalID: 6872265669878609110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_1
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 668
+        width: 25
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8e05aacb076f9441b65d7ec14ccfabf
+      internalID: 613435604629981061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet_2
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 586
+        width: 27
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef8659fd1d5b9746a5d16c600575942
+      internalID: -3656531271222932061
       vertices: []
       indices: 
       edges: []

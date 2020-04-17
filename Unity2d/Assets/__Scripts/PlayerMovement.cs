@@ -17,23 +17,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float timeBtwDashes;
     private float preDashSpeed;
     private float preDashRot;
-    private AudioManager audioManager;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        audioManager=GetComponent<AudioManager>();
-    }
+    private bool isMoving=false;
 
     // Update is called once per frame
     void Update()
     {   
         Move();
-
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            DashMove();
-        }   
     }
     
     private void Move()
@@ -48,6 +37,16 @@ public class PlayerMovement : MonoBehaviour
 
         //change z axis based on input
         z-=Input.GetAxis("Horizontal") * rotSpeed *Time.deltaTime;
+     
+        /*if(Input.GetAxis("Horizontal")!=0)
+        {
+           isMoving=true;
+        }
+
+        if(isMoving)
+        {
+            SoundManager.PlaySound("PlayerMove");
+        }*/
 
         //recreate quaternion
         rot=Quaternion.Euler(0,0,z);
@@ -97,6 +96,11 @@ public class PlayerMovement : MonoBehaviour
 
         //update position
         transform.position=pos;
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            DashMove();
+        }   
     }
     
     private void DashMove()
@@ -110,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //increases your speed and rotation speed for a few seconds
     IEnumerator Dash()
     {
         canDash=false;

@@ -11,7 +11,6 @@ public class DamageHandler : MonoBehaviour
     private int killCount;
 
     private SpriteRenderer spriteRenderer;
-    //private float invulAnimTimer=0;
 
     void Start()
     {
@@ -19,7 +18,7 @@ public class DamageHandler : MonoBehaviour
         spriteRenderer=GetComponent<SpriteRenderer>();
         
         //this will only get the rendered in the parent object
-        if(spriteRenderer==null)
+        /*if(spriteRenderer==null)
         {
             spriteRenderer= transform.GetComponentInChildren<SpriteRenderer>();
 
@@ -28,14 +27,16 @@ public class DamageHandler : MonoBehaviour
                 Destroy(gameObject);
                 Debug.LogError("Object '"+gameObject.name+"' has no sprite renderer");
             }
-        }
+        }*/
     }
     private void OnTriggerEnter2D()
     {
         Debug.Log("Trigger");
 
-        
+        //when objects collide, they take 1 dmg
         health--;
+
+        //invulnerability
         if(invulTime>0)
         {
             invulPeriod=invulTime;
@@ -74,15 +75,25 @@ public class DamageHandler : MonoBehaviour
         CheckIfInvisible();
     }
     private void Die()
-    {
+    {   
+        //when enemy dies, add 10 score and play sound
         if(gameObject.layer==9 && gameObject.tag=="Enemy")
         {
             Debug.Log("Killed enemy");
             Scoreboard.scoreValue+=10;
+            SoundManager.PlaySound("EnemyDeath");
         }
+
+        if(gameObject.layer==8 && gameObject.tag=="Player")
+        {
+            SoundManager.PlaySound("PlayerDeath");
+        }
+
         Destroy(gameObject);
     }
 
+    //had a bug that was causing enemies to spawn without a sprite renderer so I added this function to elimate it
+    //if gameoject doesnt have a sprite renderer then destroy it
     private void CheckIfInvisible()
     {
         if(spriteRenderer==null)

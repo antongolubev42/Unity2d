@@ -19,6 +19,8 @@ public class Scoreboard : MonoBehaviour
     void Update()
     {
         score.text=" Score: "+scoreValue;
+
+        //switch scenes when score reaches a threshhold
         if(scene.name=="levelOne" && scoreValue==200)
         {
             SceneManager.LoadScene("levelTwo");

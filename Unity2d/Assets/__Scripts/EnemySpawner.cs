@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
         if(nextEnemy<=0f)
         {
             nextEnemy= spawnRate;
+            //enemies spawn faster after every spawn
             spawnRate*=0.95f;     
 
             if(spawnRate<2)

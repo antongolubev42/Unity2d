@@ -14,7 +14,8 @@ public class EnemyShooting : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        //sets bullet layer to the same layer as the game object
         bulletLayer=gameObject.layer;
         SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>(); 
     }
@@ -35,7 +36,7 @@ public class EnemyShooting : MonoBehaviour
         }
 
         cooldownTimer-=Time.deltaTime;
-        //if there is a player if cooldown delay is 0  
+        //if there is a player,  if cooldown delay is 0  
         // and if the distance is less than 5
         if(cooldownTimer<=0 && player !=null && Vector3.Distance(transform.position,player.position)<5) 
         {

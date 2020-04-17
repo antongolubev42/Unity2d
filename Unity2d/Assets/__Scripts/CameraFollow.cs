@@ -9,6 +9,7 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
+        //find the player
         player=GameObject.FindWithTag("Player");
         myTarget=player.transform;
     }
